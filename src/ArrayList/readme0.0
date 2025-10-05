@@ -1,0 +1,72 @@
+📝 ArrayList in Java - Complete Guide
+
+🏗️ Declaration Syntax
+ClassName<DataType> objectName = new ClassName<>();
+
+Example:
+ArrayList<Integer> list = new ArrayList<>();  // ✅ Recommended
+ArrayList<Integer> list = new ArrayList<Integer>();  // ✅ Also valid
+
+⚡ Operations & Time Complexity
+
+| Operation | Syntax | Time Complexity | Description |
+|-----------|---------|----------------|-------------|
+| ➕ Add Element | `list.add(element)` | `O(1)`* | Append at end |
+| 📥 Get Element | `list.get(index)` | `O(1)` | Random access |
+| ✏️ Set Element | `list.set(index, element)` | `O(1)` | Update at index |
+| 🗑️ Remove Element | `list.remove(index)` | `O(n)` | Shifts elements |
+| 🔍 Contains Check | `list.contains(element)` | `O(n)` | Linear search |
+| 📏 Get Size | `list.size()` | `O(1)` | Returns length |
+
+> 💡 *Note: add() is O(1) amortized (may be O(n) during resizing)*
+
+📊 Performance Summary
+// ⚡ Fast Operations
+list.add(5);        // O(1)
+list.get(2);        // O(1)
+list.size();        // O(1)
+
+// 🐢 Slow Operations
+list.remove(3);     // O(n)
+list.contains(10);  // O(n)
+
+🔄 Sorting ArrayLists
+🔼 Ascending Order (Default)
+Collections.sort(list);  // Sorts in natural order ↗️
+
+### 🔽 Descending Order (Using Comparator)
+Collections.sort(list, Collections.reverseOrder());  // Simple way ↘️
+
+// Custom Comparator
+Collections.sort(list, (a, b) -> b - a);  // Lambda style
+
+🎯 Key Concepts Clarified
+Collections 🆚 Collection
+Collections    → Utility CLASS (contains static methods like sort()) 🏢
+Collection     → ROOT INTERFACE (root of collection hierarchy) 🌳
+Comparator 🆚 Comparable
+- Comparator: External logic for sorting (flexible) 🎛️
+- Comparable: Natural ordering (built into objects) 📊
+Example: Custom Sorting
+// Sort by absolute values
+Collections.sort(list, (a, b) -> Math.abs(a) - Math.abs(b));
+
+// Sort strings by length
+Collections.sort(stringList, (s1, s2) -> s1.length() - s2.length());
+
+💡 Pro Tips
+1. ✅ Use `ArrayList` when:** Need frequent access by index
+2. ❌ Avoid when:** Frequent insertions/deletions in middle
+3. 🚀 Initial Capacity:** `new ArrayList<>(100)` for better performance
+4. 🛡️ Thread Safety:** Not thread-safe → Use `Vector` for concurrent access
+
+
+🚀 Quick Reference Card
+ArrayList<String> names = new ArrayList<>();
+names.add("Alice");          // ✅ Add
+String name = names.get(0);  // ✅ Get
+names.set(0, "Bob");         // ✅ Update
+names.remove(0);             // ❌ Slow if frequent
+Collections.sort(names);     // ✅ Fast sorting
+
+🎯 Master ArrayLists for efficient data handling!

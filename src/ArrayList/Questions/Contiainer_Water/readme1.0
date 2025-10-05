@@ -1,0 +1,62 @@
+💧 Container With Most Water - Solution Guide
+
+🎯 Problem Overview
+Find the maximum water units that can be stored between two vertical lines forming a container.
+
+Visual Concept:
+```
+    |           |
+    |  |     |  |
+|   |  |  |  |  |  |
+↑   ↑  ↑  ↑  ↑  ↑  ↑
+Lines forming containers that store water
+
+🚀 Solution Approaches
+
+🔴 Approach 1: Brute Force
+// Time Complexity: O(n²) | Space: O(1)
+- Check every possible line pair combination
+- Calculate water = min(height[i], height[j]) × (j - i)
+- Track maximum value found
+
+
+⚡ Performance:
+- ✅ Guaranteed correct answer
+- ❌ Inefficient for large inputs
+- ⚠️ Suitable only for small datasets
+
+
+
+🔴Approach 2: Two-Pointer (Optimal)
+// Time Complexity: O(n) | Space: O(1)
+- Start with widest container (first & last lines)
+- Move pointers strategically to find maximum
+
+🎯 Algorithm Steps:
+1. Initialize pointers at both ends
+2. Calculate current water capacity
+3. Update maximum if needed
+4. Move the shorter line inward
+5. Repeat until pointers meet
+
+🌟 Key Insight:
+> Always move the shorter line → Chance to find taller line while maintaining width
+
+📊 Comparison Table
+| Aspect | Brute Force 🔴 | Two-Pointer 🟢 |
+|--------|---------------|----------------|
+| Time | O(n²) | O(n) |
+| Space | O(1) | O(1) |
+| Strategy | Check all pairs | Smart pointer movement |
+| Use Case | Small inputs | Large datasets |
+
+💡 Pro Tip
+Remember the formula:
+Water = Minimum Height × Distance Between Lines
+The optimal approach balances both factors efficiently! 🎯
+
+📈 Complexity Analysis
+- Brute Force: `O(n²)` - Slow but simple
+- Two Pointer: `O(n)`  - Fast and elegant ✅
+
+Choose wisely based on your input size! 🚀
